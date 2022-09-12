@@ -1,0 +1,33 @@
+$totalColumn: 24;
+$firstColumn: 1;
+$lastColumn: $totalColumn + 1;
+$sidebarColumnEnd: 3;
+
+$totalRow : 24;
+$firstRow: 1;
+$lastRow: $totalRow + 1;
+$headerRowEnd: 2;
+$footerRowStart: $lastRow - 1;
+
+
+:host {
+  display: grid;
+  grid-template-columns: repeat($totalColumn, 1fr);
+  grid-template-rows: repeat($totalRow, 1fr);
+  gap: 0.2rem;
+  width: 100%;
+  background-color: #b3b3b3;
+  & > * {
+    background-color: #ffffff;
+  }
+}
+
+app-sidebar { grid-column: #{$firstColumn} / #{$sidebarColumnEnd};  grid-row:  #{$firstRow} / #{$lastRow}; }
+app-header { grid-column: #{$sidebarColumnEnd} / #{$lastColumn};  grid-row: #{$firstRow }/ #{$headerRowEnd}; }
+main { grid-column: #{$sidebarColumnEnd} / #{$lastColumn};  grid-row: #{$headerRowEnd} / #{$footerRowStart}; overflow: auto;}
+app-footer { grid-column: #{$sidebarColumnEnd} / #{$lastColumn};  grid-row: #{$footerRowStart} / #{$lastRow}; }
+
+//main > :nth-child(1) {
+//  overflow: auto;
+//}
+

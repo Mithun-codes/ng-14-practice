@@ -1,1 +1,49 @@
-<p>component11 works!</p>
+<div class="product">
+  <header class="product__header">Product List</header>
+  <table class="product__table">
+    <thead>
+    <tr>
+      <th>Id</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let product of productList$ | async;let i = index;">
+      <td>{{ i + 1 }}</td>
+      <td>{{ product.title }}</td>
+      <td>{{ product.description }}</td>
+      <td>{{ product.price }}</td>
+      <td>
+        <button class="viewDetails" (click)="getProductsDetails(product.id)">Details</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  {{ this.singleProduct$ | async | json }}
+</div>
+
+<ng-template #content>
+  <ng-container class="header">Product Details</ng-container>
+  <div class="body" *ngIf="singleProduct$ | async as product">
+    <div>
+      <label>Title</label>
+      <span>{{product.title}}</span>
+    </div>
+    <div>
+      <label>Description</label>
+      <span>{{product.description}}</span>
+    </div>
+    <div>
+      <label>Title</label>
+      <span>{{product.title}}</span>
+    </div>
+    <div>
+      <label>Title</label>
+      <span>{{product.title}}</span>
+    </div>
+  </div>
+</ng-template>

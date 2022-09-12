@@ -4,10 +4,10 @@ import { Component11Component } from "./components/component11/component11.compo
 import { Component12Component } from "./components/component12/component12.component";
 
 const routes: Routes = [
-  { path: '', redirectTo: 'cmt11', },
-  { path: '**', redirectTo: 'cmt11', },
+  { path: '', redirectTo: 'cmt11', pathMatch: 'full', },
   { path: 'cmt11', component: Component11Component, },
   { path: 'cmt12', component: Component12Component, },
+  { path: '**', redirectTo: 'cmt11', },
 ];
 
 @NgModule({
