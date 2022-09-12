@@ -1,0 +1,52 @@
+:host {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  & .product {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    &__header {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 3rem;
+      background-color: var(--txtColor);
+      color: #ffffff;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    &__table {
+      width: 98%;
+      margin: 1%;
+      border-collapse: collapse;
+      & th {
+        border: 1px solid #212F3C;
+        text-align: left;
+        padding: 0.2rem 0.1rem 0.2rem 0.5rem;
+        background-color: #212F3C;
+        color: #ECF0F1;
+      }
+      & td {
+        border: 1px solid #212F3C;
+        text-align: left;
+        padding: 0.2rem 0.1rem 0.2rem 0.5rem;
+        background-color: #ECF0F1;
+        color: #212F3C;
+        & .viewDetails {
+          background-color: var(--activeBg);
+          border: 1px solid var(--activeBg);
+          color: #ECF0F1;
+          padding: 0.2rem 0.5rem;
+          cursor: pointer;
+          border-radius: 0.1rem;
+          &:hover {
+            background-color: #E9786C;
+            color: white;
+          }
+        }
+      }
+    }
+  }
+}

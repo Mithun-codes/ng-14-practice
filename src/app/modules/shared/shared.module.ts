@@ -1,19 +1,36 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { DemoPipe } from './pipes/demo.pipe';
-import { DemoService } from "./services/demo.service";
+import {ModuleWithProviders, NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {HttpClientModule} from "@angular/common/http";
 
+import {ApiService} from "./services/api/api.service";
+import {DemoService} from "./services/demo/demo.service";
+
+import {DemoPipe} from './pipes/demo.pipe';
+import { PopupComponent } from './components/popup/popup.component';
 
 
 @NgModule({
   declarations: [
-    DemoPipe
+    DemoPipe,
+    PopupComponent,
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    HttpClientModule,
   ],
   providers: [
-    DemoService
+    DemoService,
+  ],
+  exports: [
+    PopupComponent,
   ]
 })
-export class SharedModule { }
+
+export class SharedModule {
+  static forRoot(): ModuleWithProviders<any> {
+    return {
+      ngModule: SharedModule,
+      providers: [ApiService]
+    }
+  }
+}
