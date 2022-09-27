@@ -44,7 +44,8 @@ export class Component11Component implements OnInit {
       tap((item: any) => {
         // console.log(item);
       }),
-      pluck('products')
+      // pluck('products'), //pluck is deprecated so use map instead. //pluck use map function in background
+      map(item =>  item['products'])
     );
   }
 
